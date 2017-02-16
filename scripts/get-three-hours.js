@@ -8,7 +8,11 @@ axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${ARGS.city}&appid=
       const date = new Date(status.dt * 1000);
       const dateHour = date.toLocaleString('en-US', { hour: "numeric" });
 
-      return { forecast: status.weather[0].main, hour: dateHour };
+      return {
+        forecast: status.weather[0].main,
+        hour: dateHour,
+        rain: status.weather[0].rain
+      };
    });
 
     setResponse(new HttpResponse(

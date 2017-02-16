@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-console.log(`http://api.openweathermap.org/data/2.5/weather?q=${ARGS.city}&APPID=${CONFIG.APP_ID}`)
-
 axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${ARGS.city}&appid=${CONFIG.APP_ID}`)
   .then((response) => response.data)
   .then((weather) => {
