@@ -1,11 +1,13 @@
 name: openweathermap
-version: 0.0.2
+version: 0.0.11
 description: 'Interface for OpenWeatherMap API'
 keywords:
   - openweathermap
   - weather
 config:
   APP_ID:
+    description: 'OpenWeatherMap API key'
+    long_description: "To find the API key, go to your OpenWeatherMap account and copy it from\nAPI keys section at (https://home.openweathermap.org/api_keys).\n"
     required: true
 endpoints:
   get-temperature:
@@ -22,13 +24,11 @@ endpoints:
         -
           exit_code: 200
           description: Success
-          example:
-            temp: '-2.3'
+          example: "{\"temp\":\"-2.3\"}\n"
         -
           exit_code: 400
           description: Failed
-          example:
-            message: 'Error: Not found city'
+          example: "{\"message\":\"Error: Not found city\"}\n"
   get-three-hours-forecast:
     description: 'Get three hours weather forecast'
     file: scripts/get-three-hours.js
@@ -47,5 +47,4 @@ endpoints:
         -
           exit_code: 400
           description: Failed
-          example:
-            message: 'City not found'
+          example: "{\"message\":\"City not found\"}\n"
