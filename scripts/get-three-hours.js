@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${ARGS.city}&appid=${CONFIG.APP_ID}`)
   .then((response) => response.data)
   .then((weather) => {

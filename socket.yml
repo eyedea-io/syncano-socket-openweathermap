@@ -1,51 +1,68 @@
 name: openweathermap
-version: 0.0.11
-description: 'Interface for OpenWeatherMap API'
-url: https://github.com/eyedea-io/syncano-socket-openweathermap
+version: 0.0.25
+description: Interface for OpenWeatherMap API
+url: 'https://github.com/eyedea-io/syncano-socket-openweathermap'
 keywords:
   - openweathermap
   - weather
 config:
   APP_ID:
-    description: 'OpenWeatherMap API key'
-    long_description: "To find the API key, go to your OpenWeatherMap account and copy it from\nAPI keys section at (https://home.openweathermap.org/api_keys).\n"
+    description: OpenWeatherMap API key
+    long_description: |
+      To find the API key, go to your OpenWeatherMap account and copy it from
+      API keys section at (https://home.openweathermap.org/api_keys).
     required: true
 endpoints:
+  get-temperature2:
+    description: Get actual temperature
+    file: scripts/get-temperature.js
+  get-temperature1:
+    description: Get actual temperature
+    file: scripts/get-temperature.js
   get-temperature:
-    description: 'Get actual temperature'
+    description: Get actual temperature
     file: scripts/get-temperature.js
     parameters:
       city:
         type: string
-        description: 'City for which you want to get weather'
+        description: City for which you want to get weather
         example: Oslo
     response:
       mimetype: application/json
       examples:
-        -
-          exit_code: 200
+        - exit_code: 200
           description: Success
-          example: "{\"temp\":\"-2.3\"}\n"
-        -
-          exit_code: 400
+          example: |
+            {
+              "temp":"-2.3"
+            }
+        - exit_code: 400
           description: Failed
-          example: "{\"message\":\"Error: Not found city\"}\n"
+          example: |
+            {
+              "message":"Error: Not found city"
+            }
   get-three-hours-forecast:
-    description: 'Get three hours weather forecast'
+    description: Get three hours weather forecast
     file: scripts/get-three-hours.js
     parameters:
       city:
         type: string
-        description: 'City for which you want to get weather'
+        description: City for which you want to get weather
         example: Oslo
     response:
       mimetype: application/json
       examples:
-        -
-          exit_code: 200
+        - exit_code: 200
           description: Success
-          example: "[\n  { \"weather\": \"rain\", \"hour\": \"12pm\" },\n  { \"weather\": \"clear sky\", \"hour\": \"1pm\" }\n]\n"
-        -
-          exit_code: 400
+          example: |
+            [
+              { "weather": "rain", "hour": "12pm" },
+              { "weather": "clear sky", "hour": "1pm" }
+            ]
+        - exit_code: 400
           description: Failed
-          example: "{\"message\":\"City not found\"}\n"
+          example: |
+            {
+              "message": "City not found"
+            }
