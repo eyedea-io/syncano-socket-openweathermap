@@ -1,5 +1,5 @@
 name: openweathermap
-version: 0.0.25
+version: 0.0.26
 description: Interface for OpenWeatherMap API
 url: 'https://github.com/eyedea-io/syncano-socket-openweathermap'
 keywords:
@@ -13,12 +13,6 @@ config:
       API keys section at (https://home.openweathermap.org/api_keys).
     required: true
 endpoints:
-  get-temperature2:
-    description: Get actual temperature
-    file: scripts/get-temperature.js
-  get-temperature1:
-    description: Get actual temperature
-    file: scripts/get-temperature.js
   get-temperature:
     description: Get actual temperature
     file: scripts/get-temperature.js
