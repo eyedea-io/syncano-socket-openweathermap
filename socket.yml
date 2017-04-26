@@ -1,5 +1,5 @@
 name: openweathermap
-version: 0.0.26
+version: 0.0.28
 description: Interface for OpenWeatherMap API
 url: 'https://github.com/eyedea-io/syncano-socket-openweathermap'
 keywords:
@@ -42,7 +42,7 @@ endpoints:
     parameters:
       city:
         type: string
-        description: City for which you want to get weather
+        description: City for which you want to get weather for
         example: Oslo
     response:
       mimetype: application/json
