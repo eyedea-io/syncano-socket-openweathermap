@@ -6,7 +6,7 @@ keywords:
   - openweathermap
   - weather
 config:
-  APP_ID:
+  API_KEY:
     description: OpenWeatherMap API key
     long_description: |
       To find the API key, go to your OpenWeatherMap account and copy it from
