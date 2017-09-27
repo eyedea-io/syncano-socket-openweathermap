@@ -1,5 +1,5 @@
 name: openweathermap
-version: 0.0.29
+version: 0.0.32
 description: Interface for OpenWeatherMap API
 url: 'https://github.com/eyedea-io/syncano-socket-openweathermap'
 keywords:
@@ -15,7 +15,7 @@ config:
 endpoints:
   get-temperature:
     description: Get actual temperature
-    file: scripts/get-temperature.js
+    file: get-temperature.js
     parameters:
       city:
         type: string
@@ -38,7 +38,7 @@ endpoints:
             }
   get-three-hours-forecast:
     description: Get three hours weather forecast
-    file: scripts/get-three-hours.js
+    file: get-three-hours.js
     parameters:
       city:
         type: string
