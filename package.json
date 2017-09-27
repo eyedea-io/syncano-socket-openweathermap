@@ -1,9 +1,10 @@
 {
   "dependencies": {
-    "syncano-server": "gamma",
-    "axios": "^0.15.3"
+    "axios": "^0.15.3",
+    "syncano-server": "gamma"
   },
   "scripts": {
+    "test": "npm-run-all --parallel test:lint test:e2e:coverage",
     "test:e2e-single": "cross-env NODE_ENV=test mocha -s 1800 --reporter spec --require babel-register --timeout 4000",
     "test:e2e-single:coverage": "yarn && nyc --produce-source-map=true cross-env NODE_ENV=test mocha -s 1800 --reporter spec --require babel-register --timeout 4000",
     "test:e2e": "npm run test:e2e-single 'test/*.test.js'",
@@ -15,6 +16,7 @@
     "chai": "^4.1.2",
     "mocha": "^3.5.3",
     "mockery": "^2.1.0",
+    "npm-run-all": "^4.1.1",
     "sinon": "^3.3.0",
     "standard": "^10.0.3",
     "syncano-test": "^0.1.10"

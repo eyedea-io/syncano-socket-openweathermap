@@ -10,7 +10,7 @@ dependencies:
 
 test:
   override:
-    - exit 0
+    - yarn run test
 
 deployment:
   production:
