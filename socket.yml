@@ -22,20 +22,21 @@ endpoints:
         description: City for which you want to get weather
         example: Oslo
     response:
-      mimetype: application/json
-      examples:
-        - exit_code: 200
-          description: Success
-          example: |
-            {
-              "temp":"-2.3"
-            }
-        - exit_code: 400
-          description: Failed
-          example: |
-            {
-              "message":"Error: Not found city"
-            }
+      success:
+        description: Success
+        parameters:
+          temp:
+            type: float
+            description: Temperature
+            example: -2.3
+      fail:
+        description: Failed
+        exit_code: 400
+        parameters:
+          message:
+            type: string
+            description: Message
+            example: City not found
   get-three-hours-forecast:
     description: Get three hours weather forecast
     file: get-three-hours.js
@@ -46,17 +47,24 @@ endpoints:
         example: Oslo
     response:
       mimetype: application/json
-      examples:
-        - exit_code: 200
-          description: Success
-          example: |
-            [
-              { "weather": "rain", "hour": "12pm" },
-              { "weather": "clear sky", "hour": "1pm" }
-            ]
-        - exit_code: 400
-          description: Failed
-          example: |
-            {
-              "message": "City not found"
-            }
+      success:
+        description: Success
+        parameters:
+          type: array
+          items:
+            weather:
+              type: string
+              description: Weather keyword
+              example: rain
+            hour:
+              type: string
+              description: Hour of the forecast
+              example: 12pm
+      fail:
+        description: Failed
+        exit_code: 400
+        parameters:
+          message:
+            type: string
+            description: Message
+            example: City not found
