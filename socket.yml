@@ -1,5 +1,5 @@
 name: openweathermap
-version: 0.0.36
+version: 0.0.37
 description: Interface for OpenWeatherMap API
 url: 'https://github.com/eyedea-io/syncano-socket-openweathermap'
 keywords:
