@@ -21,7 +21,7 @@
     "nyc": "^11.2.1",
     "sinon": "^3.3.0",
     "standard": "^10.0.3",
-    "syncano-test": "^0.1.10"
+    "syncano-test": "beta"
   },
   "babel": {
     "presets": [
