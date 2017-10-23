@@ -12,10 +12,13 @@ config:
       To find the API key, go to your OpenWeatherMap account and copy it from
       API keys section at (https://home.openweathermap.org/api_keys).
     required: true
+components:
+  weather-widget:
+    file: WeatherWidget
 endpoints:
   get-temperature:
     description: Get actual temperature
-    file: get-temperature.js
+    file: endpoints/get-temperature.js
     parameters:
       city:
         type: string
@@ -39,7 +42,7 @@ endpoints:
             example: City not found
   get-three-hours-forecast:
     description: Get three hours weather forecast
-    file: get-three-hours.js
+    file: endpoints/get-three-hours.js
     parameters:
       city:
         type: string

@@ -10,8 +10,11 @@ dependencies:
 
 test:
   override:
-    - yarn run test
-
+    - yarn run test:unit
+    - yarn run test:coverage
+    - yarn run test:e2e
+    - yarn run test:coverage
+    
 deployment:
   production:
     branch: master
