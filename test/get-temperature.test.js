@@ -1,14 +1,15 @@
 /* global describe it */
 import {assert} from 'chai'
-import {run} from 'syncano-test'
+import {run, generateMeta} from '@syncano/test'
 
 describe('get-temperature', function () {
+  const meta = generateMeta()
   const config = {
     API_KEY: process.env.OPENWEATHERMAP_API_KEY
   }
 
   it('existing city', function (done) {
-    run('get-temperature', {args: {city: 'Oslo'}, config})
+    run('get-temperature', {args: {city: 'Oslo'}, meta, config})
       .then(response => {
         assert.property(response.data, 'temp')
         assert.propertyVal(response, 'code', 200)
@@ -16,7 +17,7 @@ describe('get-temperature', function () {
       })
   })
   it('wrong API_KEY', function (done) {
-    run('get-temperature', {args: {city: 'Oslo'}, config: {API_KEY: 'dummy'}})
+    run('get-temperature', {args: {city: 'Oslo'}, meta, config: {API_KEY: 'dummy'}})
       .then(response => {
         assert.property(response.data, 'message')
         assert.propertyVal(response, 'code', 400)

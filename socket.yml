@@ -15,7 +15,6 @@ config:
 endpoints:
   get-temperature:
     description: Get actual temperature
-    file: get-temperature.js
     parameters:
       city:
         type: string
@@ -37,9 +36,8 @@ endpoints:
             type: string
             description: Message
             example: City not found
-  get-three-hours-forecast:
+  get-three-hours:
     description: Get three hours weather forecast
-    file: get-three-hours.js
     parameters:
       city:
         type: string
