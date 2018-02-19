@@ -1,8 +1,8 @@
 import axios from 'axios'
-import Syncano from 'syncano-server'
+import Syncano from '@syncano/core'
 
 export default (ctx) => {
-  const {response} = Syncano(ctx)
+  const {response} = new Syncano(ctx)
 
   return axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${ctx.args.city}&appid=${ctx.config.API_KEY}`)
   .then((response) => response.data)

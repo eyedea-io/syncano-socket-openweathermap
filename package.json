@@ -1,35 +1,48 @@
 {
+  "name": "syncano-socket-openweathermap",
+  "version": "0.1.0",
+  "description": "Interface for OpenWeatherMap API",
+  "repository": "https://github.com/eyedea-io/syncano-socket-openweathermap.git",
   "license": "MIT",
-  "dependencies": {
-    "axios": "^0.15.3",
-    "syncano-server": "gamma"
-  },
   "scripts": {
-    "test": "yarn && npm-run-all --parallel test:lint test:e2e:coverage",
-    "test:e2e-single": "cross-env NODE_ENV=test mocha -s 1800 --reporter spec --require babel-register --timeout 4000",
-    "test:e2e-single:coverage": "nyc --produce-source-map=true cross-env NODE_ENV=test mocha -s 1800 --reporter spec --require babel-register --timeout 4000",
-    "test:e2e": "npm run test:e2e-single 'test/*.test.js'",
+    "build": "npm install && npm run build:src && npm run build:env",
+    "build:src": "sh ./bin/compile",
+    "build:env": "sh ./bin/compile-env",
+    "test": "npm-run-all --parallel test:lint test:e2e:coverage",
+    "test:e2e-single": "NODE_ENV=test mocha -s 1800 --reporter spec --require babel-register --timeout 4000",
+    "test:e2e-single:coverage": "nyc --produce-source-map=true NODE_ENV=test mocha -s 1800 --reporter spec --require babel-register --timeout 4000",
+    "test:e2e": "npm run test:e2e-single -- 'test/*.test.js'",
     "test:e2e:coverage": "nyc --produce-source-map=true npm run test:e2e",
     "test:lint": "standard --fix"
   },
+  "dependencies": {
+    "@syncano/core": "0.9.3",
+    "axios": "^0.17.1"
+  },
   "devDependencies": {
-    "babel-core": "^6.26.0",
+    "@syncano/test": "canary",
+    "@syncano/test-tools": "canary",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-syntax-object-rest-spread": "^6.13.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "chai": "^4.1.2",
-    "mocha": "^3.5.3",
-    "mockery": "^2.1.0",
+    "mocha": "^5.0.0",
     "npm-run-all": "^4.1.1",
-    "nyc": "^11.2.1",
-    "sinon": "^3.3.0",
-    "standard": "^10.0.3",
-    "syncano-test": "^0.1.10"
+    "nyc": "^11.4.1",
+    "standard": "^10.0.3"
   },
   "babel": {
+    "plugins": [
+      "syntax-object-rest-spread",
+      "transform-object-rest-spread"
+    ],
     "presets": [
       [
         "env",
         {
           "targets": {
-            "node": "7"
+            "node": "8"
           }
         }
       ]
