@@ -1,5 +1,5 @@
 {
-  "name": "syncano-socket-openweathermap",
+  "name": "@eyedea-sockets/openweathermap",
   "version": "0.1.0",
   "description": "Interface for OpenWeatherMap API",
   "repository": "https://github.com/eyedea-io/syncano-socket-openweathermap.git",
