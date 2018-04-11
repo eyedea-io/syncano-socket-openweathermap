@@ -1,6 +1,6 @@
 {
   "name": "@eyedea-sockets/openweathermap",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Interface for OpenWeatherMap API",
   "repository": "https://github.com/eyedea-io/syncano-socket-openweathermap.git",
   "license": "MIT",
