@@ -4,6 +4,9 @@
   "description": "Interface for OpenWeatherMap API",
   "repository": "https://github.com/eyedea-io/syncano-socket-openweathermap.git",
   "license": "MIT",
+  "files": {
+    "./dist/package-lock.json"
+  },
   "scripts": {
     "build": "npm install && npm run build:src && npm run build:env",
     "build:src": "sh ./bin/compile",
