@@ -55,8 +55,6 @@ jobs:
       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
       - run: echo "@syncano:registry=https://registry.npmjs.org/" >> ~/.npmrc
       - run: npm publish --tag canary --access=public
-      - run: git config --global user.email $GITHUB_EMAIL && git config --global user.name $GITHUB_NAME
-      - run: git commit -a -m "Bumping version [ci skip]" && git push origin $CIRCLE_BRANCH
 
   deploy:
     name: Deploy
