@@ -1,6 +1,6 @@
 {
   "name": "@eyedea-sockets/openweathermap",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "public": true,
   "description": "Integration with OpenWeatherMap API",
   "author": "Syncano",
@@ -16,7 +16,6 @@
     "@syncano/cli": "0.13.0-alpha.f6ea95d4"
   },
   "dependencies": {
-    "@syncano/cli": "^0.13.0-alpha.f6ea95d4",
     "@syncano/core": "0.13.0-alpha.f6ea95d4",
     "@syncano/validate": "0.13.0-alpha.f6ea95d4",
     "axios": "^0.18.0"
