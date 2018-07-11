@@ -1,6 +1,6 @@
 {
   "name": "@eyedea-sockets/openweathermap",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "public": true,
   "description": "Integration with OpenWeatherMap API",
   "author": "Syncano",
@@ -24,7 +24,7 @@
     "build": "npm run build:src && npm run build:env",
     "build:src": "sh ./bin/compile",
     "build:env": "sh ./bin/compile-env",
-    "test": "npm-run-all --parallel test:lint test:audit   test:e2e",
+    "test": "npm-run-all --parallel test:lint test:audit test:e2e",
     "codecov": "codecov",
     "test:e2e": "NODE_ENV=test jest e2e/.*\\.test\\.js",
     "test:audit": "npm audit",
