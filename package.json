@@ -1,6 +1,6 @@
 {
   "name": "@eyedea-sockets/openweathermap",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "public": true,
   "description": "Integration with OpenWeatherMap API",
   "author": "Syncano",
