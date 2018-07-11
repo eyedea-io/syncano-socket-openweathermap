@@ -1,10 +1,6 @@
 name: openweathermap
-version: 0.0.38
 description: Interface for OpenWeatherMap API
 url: 'https://github.com/eyedea-io/syncano-socket-openweathermap'
-keywords:
-  - openweathermap
-  - weather
 config:
   API_KEY:
     description: OpenWeatherMap API key

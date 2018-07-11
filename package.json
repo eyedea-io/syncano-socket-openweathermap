@@ -1,48 +1,79 @@
 {
   "name": "@eyedea-sockets/openweathermap",
-  "version": "0.1.2",
-  "description": "Interface for OpenWeatherMap API",
+  "version": "0.1.3",
+  "public": true,
+  "description": "Integration with OpenWeatherMap API",
+  "author": "Syncano",
   "repository": "https://github.com/eyedea-io/syncano-socket-openweathermap.git",
   "license": "MIT",
-  "files": [
-    "./dist/package-lock.json"
+  "keywords": [
+    "syncano",
+    "socket",
+    "openweathermap",
+    "weather"
   ],
-  "scripts": {
-    "build": "npm install && npm run build:src && npm run build:env",
-    "build:src": "sh ./bin/compile",
-    "build:env": "sh ./bin/compile-env",
-    "test": "npm-run-all --parallel test:lint test:e2e:coverage",
-    "test:e2e-single": "NODE_ENV=test mocha -s 1800 --reporter spec --require babel-register --timeout 4000",
-    "test:e2e-single:coverage": "nyc --produce-source-map=true NODE_ENV=test mocha -s 1800 --reporter spec --require babel-register --timeout 4000",
-    "test:e2e": "npm run test:e2e-single -- 'test/*.test.js'",
-    "test:e2e:coverage": "nyc --produce-source-map=true npm run test:e2e",
-    "test:lint": "standard --fix"
+  "peerDependencies": {
+    "@syncano/cli": "0.13.0-alpha.f6ea95d4"
   },
   "dependencies": {
-    "@syncano/core": "0.9.3",
-    "axios": "^0.17.1"
+    "@syncano/cli": "^0.13.0-alpha.f6ea95d4",
+    "@syncano/core": "0.13.0-alpha.f6ea95d4",
+    "@syncano/validate": "0.13.0-alpha.f6ea95d4",
+    "axios": "^0.18.0"
+  },
+  "scripts": {
+    "build": "npm run build:src && npm run build:env",
+    "build:src": "sh ./bin/compile",
+    "build:env": "sh ./bin/compile-env",
+    "test": "npm-run-all --parallel test:lint test:audit test:e2e",
+    "codecov": "codecov",
+    "test:e2e": "NODE_ENV=test jest e2e/.*\\.test\\.js",
+    "test:audit": "npm audit",
+    "test:lint": "standard --fix"
   },
   "devDependencies": {
-    "@syncano/test": "canary",
-    "@syncano/test-tools": "canary",
-    "babel-cli": "^6.26.0",
-    "babel-plugin-syntax-object-rest-spread": "^6.13.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "chai": "^4.1.2",
-    "mocha": "^5.0.0",
+    "@babel/cli": "^7.0.0-beta.49",
+    "@babel/core": "^7.0.0-beta.49",
+    "@babel/preset-env": "^7.0.0-beta.49",
+    "@syncano/test": "0.13.0-alpha.f6ea95d4",
+    "@syncano/test-tools": "0.13.0-alpha.f6ea95d4",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.0.1",
+    "codecov": "^3.0.2",
+    "jest": "^23.4.0",
     "npm-run-all": "^4.1.1",
-    "nyc": "^11.4.1",
+    "sinon": "^5.1.0",
     "standard": "^10.0.3"
   },
-  "babel": {
-    "plugins": [
-      "syntax-object-rest-spread",
-      "transform-object-rest-spread"
+  "jest": {
+    "globals": {
+      "ts-jest": {
+        "useBabelrc": true
+      }
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "js"
     ],
+    "testMatch": [],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      ".dist/**"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": -10
+      }
+    }
+  },
+  "babel": {
+    "sourceMaps": "inline",
     "presets": [
       [
-        "env",
+        "@babel/preset-env",
         {
           "targets": {
             "node": "8"
