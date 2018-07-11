@@ -1,8 +1,18 @@
 import axios from 'axios'
 import Syncano from '@syncano/core'
+import Validator from '@syncano/validate'
 
 export default async ctx => {
   const {response} = new Syncano(ctx)
+  const validator = new Validator(ctx)
+
+  // Validate arguments against jsonSchema (socket.yml)
+  try {
+    await validator.validateRequest()
+  } catch (err) {
+    return response.json(err.messages, 400)
+  }
+
   const {city} = ctx.args
   const {API_KEY} = ctx.config
 
