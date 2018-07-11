@@ -1,7 +1,7 @@
 # Syncano Socket for OpenWeatherMap
 
 [![Syncano Socket](https://img.shields.io/badge/syncano-socket-blue.svg)](https://syncano.io)
-[![CircleCI branch](https://img.shields.io/circleci/project/github/eyedea-io/syncano-socket-openweathermap /master.svg)](https://circleci.com/gh/eyedea-io/syncano-socket-openweathermap/tree/master)
+[![CircleCI branch](https://img.shields.io/circleci/project/github/eyedea-io/syncano-socket-openweathermap/master.svg)](https://circleci.com/gh/eyedea-io/syncano-socket-openweathermap/tree/master)
 ![Codecov branch](https://img.shields.io/codecov/c/github/eyedea-io/syncano-socket-openweathermap/master.svg)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![npm](https://img.shields.io/npm/dw/@eyedea-sockets/openweathermap.svg)](https://www.npmjs.com/package/@eyedea-sockets/)
