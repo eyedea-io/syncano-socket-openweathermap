@@ -18,8 +18,8 @@ export default async ctx => {
       const dateHour = date.toLocaleString('en-US', { hour: 'numeric' })
 
       return {
-        forecast: status.weather[0].main,
         hour: dateHour,
+        forecast: status.weather[0].main,
         rain: status.weather[0].rain
       }
     })
