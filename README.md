@@ -26,7 +26,7 @@ npx s deploy
 Use it:
 
 ```js
-import Syncano from @syncano/core
+import Syncano from @syncano/client
 
 const s = new Syncano(<instaneName>)
 
